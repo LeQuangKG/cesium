@@ -52,7 +52,7 @@ define([
         viewModel._stopSearchPath = stopSearchPath;
 
         var form = document.createElement('form');
-        form.setAttribute('data-bind', 'submit: performAutocomplete');
+        form.setAttribute('data-bind', 'submit: performSearch');
 
         var textBox = document.createElement('input');
         textBox.type = 'search';
