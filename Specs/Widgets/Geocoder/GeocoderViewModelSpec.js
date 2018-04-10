@@ -102,7 +102,7 @@ defineSuite([
         var cameraPosition = Cartesian3.clone(scene.camera.position);
 
         viewModel.searchText = '220 Valley Creek Blvd, Exton, PA';
-        viewModel.search();
+        viewModel.performSearch();
 
         return pollToPromise(function() {
             scene.tweens.update();
@@ -127,13 +127,13 @@ defineSuite([
         viewModel.complete.addEventListener(spyListener);
 
         viewModel.searchText = '-1.0, -2.0';
-        viewModel.search();
+        viewModel.performSearch();
 
         expect(spyListener.calls.count()).toBe(1);
 
         viewModel.flightDuration = 1.5;
         viewModel.searchText = '2.0, 2.0';
-        viewModel.search();
+        viewModel.performSearch();
 
         return pollToPromise(function() {
             scene.tweens.update();
@@ -193,7 +193,7 @@ defineSuite([
         geocoder._searchText = 'sthsnth'; // an empty query will prevent geocoding
         spyOn(geocoder, '_updateCamera');
         spyOn(geocoder, '_adjustSuggestionsScroll');
-        geocoder.search();
+        geocoder.performSearch();
         expect(geocoder._searchText).toEqual(geocoderResults2[0].displayName);
     });
 

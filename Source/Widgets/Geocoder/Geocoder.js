@@ -52,7 +52,7 @@ define([
         viewModel._stopSearchPath = stopSearchPath;
 
         var form = document.createElement('form');
-        form.setAttribute('data-bind', 'submit: search');
+        form.setAttribute('data-bind', 'submit: performAutocomplete');
 
         var textBox = document.createElement('input');
         textBox.type = 'search';
@@ -80,7 +80,7 @@ hasFocus: _focusTextbox');
         var searchButton = document.createElement('span');
         searchButton.className = 'cesium-geocoder-searchButton';
         searchButton.setAttribute('data-bind', '\
-click: search,\
+click: performSearch,\
 cesiumSvgPath: { path: isSearchInProgress ? _stopSearchPath : _startSearchPath, width: 32, height: 32 }');
         form.appendChild(searchButton);
 
